@@ -52,6 +52,7 @@ database.ref().on("child_added", function(childSnap) {
   var Remainder = diffTime % frequency;
   var minutes = frequency - Remainder;
   var nextArrival = moment(diffTime).format("HH:mm"); 
+  var nextTrain = moment().add(minutes, "minutes").format("HH:mm");
 
 
   console.log(name);
@@ -62,5 +63,5 @@ database.ref().on("child_added", function(childSnap) {
 
 
   $("#train-table > tbody").append("<tr><td>" + name + "</td><td>" + des + "</td><td>" +
-  frequency + "</td><td>" + nextArrival + "</td><td>" + minutes + "</td></tr>");
+  frequency + "</td><td>" + nextTrain + "</td><td>" + minutes + "</td></tr>");
 });
